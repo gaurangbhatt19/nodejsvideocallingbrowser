@@ -2,6 +2,7 @@ const express=require("express");
 const app= express();
 const server=require("http").Server(app);
 const io=require("socket.io")(server)
+var port = process.env.PORT || 8080;
 const {v4 : uuidV4}=require("uuid");
 app.set("view engine","ejs")
 app.use(express.static("public"))
@@ -20,4 +21,4 @@ io.on('connection', socket => {
         })
     });
 });
-server.listen(3300);
+server.listen(port);
